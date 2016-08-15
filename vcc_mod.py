@@ -110,7 +110,7 @@ def getSystemid(vccCloset):
 def fpcSidmap(vccSysid, fpcStart):
 	fpcSys = dict()
 	for key in vccSysid.keys():
-		fpcId = int(key) + fpcStart
+		fpcId = int(key) + int(fpcStart)
 		fpcSys[fpcId] = vccSysid[key]
 	return fpcSys
 
@@ -276,7 +276,7 @@ def v2fmain(vccCloset,cName,cId,fpcStart):
         checkEnlldp(vccCloset)
 
         #Create FPC to Sysid mapping for the VC
-        fpcSiddict = fpcSidmap(vccSysid, fpcStart)
+        fpcSiddict = fpcSidmap(vccSysid, int(fpcStart))
 
         #Find the Cascade ports on the ADs connected to this VC
         adCportdict = findCport(vccCloset)
@@ -307,7 +307,7 @@ def v2fmain(vccCloset,cName,cId,fpcStart):
 	
 	#Configure FPC to Satellite sysid mapping
 	for fpc in fpcSiddict.keys():
-		memId = fpc - fpcStart
+		memId = fpc - int(fpcStart)
 		fpcMemberconf = 'set chassis satellite-management cluster '+cName+' fpc '+str(fpc)+' member-id '+str(memId)
 		fpcSysconf = 'set chassis satellite-management cluster '+cName+' fpc '+str(fpc)+' system-id '+fpcSiddict[fpc]
 		fpcAcconf = 'set chassis satellite-management auto-satellite-conversion satellite '+str(fpc)
@@ -321,7 +321,7 @@ def v2fmain(vccCloset,cName,cId,fpcStart):
 
 	#Commit Configuration to the ADs
 	vccAd1Chandle.commit()
-	vccAd1Chandle.commit()
+	vccAd2Chandle.commit()
 
         
 	#Close connection to the switches
@@ -329,4 +329,4 @@ def v2fmain(vccCloset,cName,cId,fpcStart):
         vccAd2handle.close()
                                     
 
-v2fmain('10.105.5.134', 'Closet1', '10', 120)                                                               
+#v2fmain('10.105.5.134', 'Closet1', '10', 120)                                                               
