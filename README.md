@@ -40,7 +40,7 @@ This project helps customers to migrate a Virtual Chassis to Satellite Device cl
 
 ### After conversion to Fusion, all configuration from the Virtual Chassis will be wiped out. 
 
-There are two major tasks needed to convert Virtual Chassis to Satellite Device Cluster in Fusion
+### There are two major tasks needed to convert Virtual Chassis to Satellite Device Cluster in Fusion
 - Migrating the Virtual Chassis to Satellite Device Cluster
 - Converting the configuration on the Virtual Chassis to Fusion Satellite configuration
 
