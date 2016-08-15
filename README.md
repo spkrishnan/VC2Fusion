@@ -6,6 +6,9 @@ The converted Virtual Chassis is called a Satellite Device Cluster in Junos Fusi
 
 This project helps customers to migrate a Virtual Chassis to Satellite Device cluster in Junos Fusion Enterprise. Here is an example of changes made by this script
 
+- Backs up the configuration from AD1, AD2 and the Virtual Chassis
+      - The backed up configuration is saved in the "backup" director under the home directory identified in "data_input.yml"
+
 - Enable LLDP on AD1, AD2 and the Virtual Chassis
       - set protocols lldp interface all
       - delete protocols lldp disable
@@ -35,20 +38,27 @@ This project helps customers to migrate a Virtual Chassis to Satellite Device cl
 
 ### EXECUTING THIS SCRIPT WILL CAUSE OUTAGE FOR THE VIRTUAL CHASSIS. This script will also make changes to the Aggregation Devices. Please analyze the consequences and take necessary precaustions before executing the script ###
 
+### After conversion to Fusion, all configuration from the Virtual Chassis will be wiped out. You will have to manually convert the configuration from Virtual Chassis and apply it on the Aggregation Device. ENSURE THAT THIS TASK IS COMPLETED BEFORE PROCEEDING WITH CONVERSION ###
+
+
+
 Steps to initiate the migration
 
 Step1: Ensure that you have PYeZ packages installed
 
 Step2: Ensure that the Aggregation Devices are enabled for Junos Fusion Enterprise
 
-Step3: Copy all files in this project in one directory
+Step3: Backup configuration from the Virtual Chassis. Manually convert this configuration to Fusion Satellite Device Cluster Configuration
 
-Step4: Edit "data_input.yml" file and provide details about "AD1", "AD2", Username, Password, Home Directory
+Step4: Copy all files in this project in one directory
 
-Step5: Execute the python script to convert a Virtual Chassis to Satellite Device Cluster 
+Step5: Edit "data_input.yml" file and provide details about "AD1", "AD2", Username, Password, Home Directory
+
+Step6: Execute the python script to convert a Virtual Chassis to Satellite Device Cluster 
 - python v2fconverter.py Virtual-Chassis-IP Cluster-Name Cluster-ID Starting-FPC-Number-for-the-Cluster
       - For example, "python v2fconverter.py '10.105.5.134' Closet1 10 120" 
        
-       
-       
+Step7: Apply the converted configuration from Step3 on the Aggregation Devices.
+  
+
        
