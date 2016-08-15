@@ -38,7 +38,13 @@ This project helps customers to migrate a Virtual Chassis to Satellite Device cl
 
 ### EXECUTING THIS SCRIPT WILL CAUSE OUTAGE FOR THE VIRTUAL CHASSIS. This script will also make changes to the Aggregation Devices. Please analyze the consequences and take necessary precautions before executing the script ###
 
-### After conversion to Fusion, all configuration from the Virtual Chassis will be wiped out. You will have to manually convert the configuration from Virtual Chassis and apply it on the Aggregation Device. ENSURE THAT THIS TASK IS COMPLETED BEFORE PROCEEDING WITH CONVERSION ###
+### After conversion to Fusion, all configuration from the Virtual Chassis will be wiped out. 
+
+There are two major tasks needed to convert Virtual Chassis to Satellite Device Cluster in Fusion
+- Migrating the Virtual Chassis to Satellite Device Cluster
+- Converting the configuration on the Virtual Chassis to Fusion Satellite configuration
+
+This script only addresses the first task. At this point, You will have to manually convert the configuration from Virtual Chassis and apply it on the Aggregation Device. ENSURE THAT YOU HAVE COMPLETED THE CONVERSION OF THE CONFIGURATION BEFORE PROCEEDING WITH THE MIGRATION ###
 
 
 
