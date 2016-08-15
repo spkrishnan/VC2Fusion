@@ -36,7 +36,7 @@ This project helps customers to migrate a Virtual Chassis to Satellite Device cl
       - set chassis satellite-management auto-satellite-conversion satellite 121
 
 
-### EXECUTING THIS SCRIPT WILL CAUSE OUTAGE FOR THE VIRTUAL CHASSIS. This script will also make changes to the Aggregation Devices. Please analyze the consequences and take necessary precaustions before executing the script ###
+### EXECUTING THIS SCRIPT WILL CAUSE OUTAGE FOR THE VIRTUAL CHASSIS. This script will also make changes to the Aggregation Devices. Please analyze the consequences and take necessary precautions before executing the script ###
 
 ### After conversion to Fusion, all configuration from the Virtual Chassis will be wiped out. You will have to manually convert the configuration from Virtual Chassis and apply it on the Aggregation Device. ENSURE THAT THIS TASK IS COMPLETED BEFORE PROCEEDING WITH CONVERSION ###
 
